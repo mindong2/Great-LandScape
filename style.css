@@ -30,6 +30,10 @@ p {
   align-items: center;
 }
 
+.banner .hamberger {
+  display: none;
+}
+
 .banner .content {
   max-width: 900px;
   text-align: center;
@@ -73,7 +77,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.4s;
+  transition: all 0.4s ease-in-out;
 }
 
 .sticky {
@@ -98,6 +102,14 @@ header .logo span {
   color: #ff0157;
 }
 
+header .view {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+}
+
 header .navbar {
   position: relative;
   display: flex;
@@ -107,15 +119,16 @@ header .navbar li {
   list-style: none;
   margin-left: 30px;
 }
-.navbar .hamberger {
-  visibility: hidden;
-}
 
 header .navbar a {
   color: #fff;
   font-size: 24px;
   font-weight: 600;
   transition: color 0.2s ease;
+}
+
+header .hamberger {
+  display: none;
 }
 
 header .navbar li a:hover {
@@ -493,11 +506,35 @@ footer h2 {
 
 @media all and (max-width: 830px) {
   header {
+    display: flex;
+    justify-content: center;
+  }
+  .color {
+    background: #fff;
+  }
+
+  .color li a {
+    color: #111;
+  }
+
+  header .navbar,
+  header .logo {
     display: none;
   }
 
-  .navbar .hamberger {
-    visibility: visible;
+  header .view {
+    display: flex;
+    transition: all 0.5s ease-in-out;
+  }
+  header .hamberger {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #111;
+    top: 15px;
+    right: 20px;
+    display: inline;
   }
 
   .row {
@@ -509,7 +546,8 @@ footer h2 {
   }
 
   .col50:nth-child(2) {
-    display: none;
+    width: 500px;
+    height: 500px;
   }
 
   .col50 .titleText {
